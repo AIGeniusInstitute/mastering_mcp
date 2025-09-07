@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>iShop Agent智能商城助手</h1>
+        <p>使用 MCP 工具的 AI 商城助手</p>
+    </header>
+    
+    <main>
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        欢迎使用智能商城助手！您可以询问我关于商品、库存和订单的问题，也可以通过我购买商品。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="输入您的问题..."></textarea>
+                <button id="send-button">发送</button>
+            </div>
+        </div>
+        
+        <div class="tools-panel">
+            <h2>可用工具</h2>
+            <div class="tools-list" id="tools-list">
+                <div class="loading">加载中...</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>使用MCP协议与AI大语言模型集成的智能商城助手演示,2025</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script_sse.js"></script>
+</body>
+</html> 

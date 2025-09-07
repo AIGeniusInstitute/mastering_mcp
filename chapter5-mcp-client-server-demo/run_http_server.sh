@@ -1,0 +1,1 @@
+npx ts-node src/server/http_server.ts

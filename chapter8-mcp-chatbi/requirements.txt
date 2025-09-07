@@ -1,0 +1,19 @@
+# requirements.txt
+mcp
+langgraph
+fastapi
+streamlit
+uvicorn
+python-dotenv
+mysql-connector-python
+pandas
+numpy
+matplotlib
+plotly
+langchain-mcp-adapters
+langchain-core
+langchain-openai
+pydantic
+python-multipart
+requests
+sqlalchemy

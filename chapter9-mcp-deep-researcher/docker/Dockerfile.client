@@ -1,0 +1,19 @@
+# docker/Dockerfile.client
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY client_server.py .
+COPY graph.py .
+COPY .env .
+
+# Expose port
+EXPOSE 8080
+
+# Run the server
+CMD ["python", "client_server.py"]

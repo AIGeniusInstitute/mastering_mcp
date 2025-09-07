@@ -1,0 +1,64 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  browser-server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.browser
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+    volumes:
+      - ./browser_server.py:/app/browser_server.py
+      - ./.env:/app/.env
+
+  report-server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.report
+    ports:
+      - "8001:8001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+    volumes:
+      - ./report_server.py:/app/report_server.py
+      - ./.env:/app/.env
+
+  client-server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client
+    ports:
+      - "8080:8080"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - BROWSER_SERVER_URL=http://browser-server:8000/sse
+      - REPORT_SERVER_URL=http://report-server:8001/sse
+    depends_on:
+      - browser-server
+      - report-server
+    volumes:
+      - ./client_server.py:/app/client_server.py
+      - ./graph.py:/app/graph.py
+      - ./.env:/app/.env
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - API_URL=http://client-server:8080
+    depends_on:
+      - client-server
+    volumes:
+      - ./streamlit_app.py:/app/streamlit_app.py
+      - ./.env:/app/.env

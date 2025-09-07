@@ -1,0 +1,1 @@
+npx ts-node src/server/stdio_server.ts

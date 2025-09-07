@@ -1,0 +1,6 @@
+{
+    "dependencies": ["."],
+    "graphs": {
+      "chatbi": "./src/agents/graph.py:make_graph"
+    }
+}

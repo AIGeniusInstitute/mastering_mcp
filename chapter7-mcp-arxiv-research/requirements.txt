@@ -1,0 +1,13 @@
+langgraph
+arxiv
+mcp
+pydantic
+langchain_mcp_adapters
+langchain_openai
+dotenv
+fastapi
+uvicorn
+docling
+langchain_text_splitters
+tiktoken
+streamlit

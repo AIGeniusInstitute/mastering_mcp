@@ -1,0 +1,25 @@
+{
+  "name": "my-mcp-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_mcp_server": "ts-node ./src/server/simple-server.ts",
+    "start_mcp_client": "ts-node ./src/client/simple-client.ts",
+    "kill_mcp_server": "lsof -t -i :3000 | xargs kill -9"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.30",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.25.56"
+  }
+}

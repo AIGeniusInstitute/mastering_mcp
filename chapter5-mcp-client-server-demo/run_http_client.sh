@@ -1,0 +1,1 @@
+npx ts-node src/client/http_client.ts

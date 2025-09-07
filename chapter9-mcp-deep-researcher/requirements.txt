@@ -1,0 +1,23 @@
+# requirements.txt
+langgraph
+mcp
+pydantic
+langchain_mcp_adapters
+langchain_openai
+python-dotenv
+fastapi
+uvicorn
+streamlit
+# browser-use
+playwright
+tiktoken
+markdown
+python-multipart
+arxiv
+docling
+langchain_text_splitters
+tiktoken
+serpapi
+sentence-transformers
+uuid7
+patchright

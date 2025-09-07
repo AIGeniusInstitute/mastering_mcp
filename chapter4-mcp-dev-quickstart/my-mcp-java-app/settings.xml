@@ -1,0 +1,66 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>spring-io-repositories</id>
+            <repositories>
+                <repository>
+                    <id>spring-milestones</id>
+                    <name>Spring Milestones</name>
+                    <url>https://repo.spring.io/milestone</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>spring-snapshots</id>
+                    <name>Spring Snapshots</name>
+                    <url>https://repo.spring.io/snapshot</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <!-- 注意：在 settings.xml 中，对于快照仓库，通常将 enabled 设置为 true -->
+                    <snapshots>
+                        <enabled>true</enabled> <!-- 如果这是一个快照仓库，确保这里是 true -->
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>central-portal-snapshots</id>
+                    <name>Central Portal Snapshots</name>
+                    <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <!-- 如果有插件仓库，也可以在这里添加 -->
+
+                <pluginRepository>
+                    <id>spring-milestones-plugins</id>
+                    <name>Spring Milestones Plugins</name>
+                    <url>https://repo.spring.io/milestone</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>spring-snapshots-plugins</id>
+                    <name>Spring Snapshots Plugins</name>
+                    <url>https://repo.spring.io/snapshot</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>spring-io-repositories</activeProfile>
+    </activeProfiles>
+</settings>
