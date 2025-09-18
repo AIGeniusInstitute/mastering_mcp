@@ -61,7 +61,7 @@ def create_conversation(conversation: ConversationCreate, db: Session = Depends(
 @router.get("/conversations", response_model=List[ConversationResponse])
 def get_conversations(db: Session = Depends(get_db)):
     # For simplicity, we're using user_id=1 (admin user)
-    conversations = db.query(Conversation).filter(Conversation.user_id == 1).all()
+    conversations = db.query(Conversation).filter(Conversation.user_id == 1).order_by(Conversation.id.desc()).all()
     return conversations
 
 
